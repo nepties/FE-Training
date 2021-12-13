@@ -1,0 +1,19 @@
+{
+  "name": "fe-training",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nepties/FE-Training.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nepties/FE-Training/issues"
+  },
+  "homepage": "https://github.com/nepties/FE-Training#readme"
+}
