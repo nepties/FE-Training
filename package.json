@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/nepties/FE-Training/issues"
   },
-  "homepage": "https://github.com/nepties/FE-Training#readme"
+  "homepage": "https://github.com/nepties/FE-Training#readme",
+  "devDependencies": {
+    "typescript": "^4.5.3"
+  }
 }
