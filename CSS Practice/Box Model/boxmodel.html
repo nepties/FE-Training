@@ -2,7 +2,6 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="boxmodel.css">
-        <script src="boxmodel.js"></script>
     </head>
     <body>
         <div class="wrapper">
@@ -15,7 +14,7 @@
                         bounds. This makes the word, “awesome”, overflow.
                     </p>
                 </figure>
-                <label class="toggle" id="intrinsic-switch">
+                <label class="toggle" for="intrinsic-switch">
                     <span class="toggle__label">Turn on intrinsic sizing</span>
                     <input type="checkbox" role="switch" class="toggle__element" id="intrinsic-switch" />
                     <div class="toggle__decor" aria-hidden="true">
@@ -26,4 +25,5 @@
             </article>
         </div>
     </body>
+    <script src="boxmodel.js"></script>
 </html>
