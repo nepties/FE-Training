@@ -5,8 +5,8 @@ import './index.css';
 class Square extends React.Component {
   render() {
     return (
-      <button className="square">
-        {/* TODO */}
+      <button className="square" id={this.props.value}>
+        
       </button>
     );
   }
@@ -14,22 +14,35 @@ class Square extends React.Component {
 
 class Board extends React.Component {
 
-  renderSquare() {
-    return <Square />;
+  renderSquare(id) {
+    return <Square value={id} key={"square" + id} />;
+  }
+
+  renderRow(size, rowNum) {
+
+    let row = Array(size).fill(null);
+    for (let i = 0; i < size; i++) {
+      row[i] = this.renderSquare(i + size * rowNum + 1);
+    }
+
+    return (
+      <div className="board-row" key={"rowNum" + rowNum}>
+        {row}
+      </div>
+    )
   }
 
   render() {
     const size = 9;
-    let row = Array(size).fill(null);
+
+    let board = Array(size).fill(null);
     for (let i = 0; i < size; i++) {
-      row[i] = this.renderSquare();
+      board[i] = this.renderRow(size, i);
     }
 
     return (
       <div>
-        <div className="board-row">
-            {row}
-        </div>
+        {board}
       </div>
     );
   }
@@ -41,10 +54,6 @@ class Game extends React.Component {
       <div className="game">
         <div className="game-board">
           <Board />
-        </div>
-        <div className="game-info">
-          <div>{/* status */}</div>
-          <ol>{/* TODO */}</ol>
         </div>
       </div>
     );
