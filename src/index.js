@@ -7,16 +7,33 @@ class Square extends React.Component {
     super(props);
     this.state = {
       value: props.value,
+      editable: '',
     }
+
+    if (props.value == null) {
+      this.state.editable = ' editable';
+    }
+
   }
 
   render() {
+    let borderClass = '';
+
+    if (this.props.id % 3 === 2 && this.props.id % 9 !== 8) {
+      borderClass += ' right-boundary';
+    }
+
+    if (Math.floor(this.props.id / 9) === 2 || Math.floor(this.props.id / 9) === 5) {
+      borderClass += ' bottom-boundary';
+    }
+
     return (
       <button
-        className="square"
+        className={"square" + this.state.editable + borderClass}
         id={this.props.id}
+        onClick={() => this.props.onClick()}
       >
-        {this.state.value}
+        {this.props.value}
       </button>
     );
   }
@@ -28,19 +45,44 @@ class Board extends React.Component {
     super(props);
     this.state = {
       sudoku : this.props.sudoku,
+      selectedBoxId : -1,
     }
   }
 
+  handleClick(i) {
+    this.setState({selectedBoxId: i});
+  }
+
+  handleKeyDown(e) {
+    if (e.keyCode >= 49 && e.keyCode <= 57) {
+      console.log(e.keyCode - 48);
+    }
+  }
+
+  updateSudoku(value) {
+    const sudoku = this.state.sudoku.splice();
+    sudoku[this.selectedBoxId] = value;
+    this.setState({sudoku: sudoku});
+  }
+
+
   renderSquare(id, value) {
-    return <Square id={id} key={"square" + id} value ={value}/>;
+    return (
+      <Square
+        id={id}
+        key={"square" + id}
+        value={value}
+        onClick={() => this.handleClick(id)}
+      />
+    );
   }
 
   renderRow(size, rowNum) {
 
     let row = Array(size).fill(null);
     for (let i = 0; i < size; i++) {
-      let squareNum = i + size * rowNum
-      row[i] = this.renderSquare(squareNum + 1, this.state.sudoku[squareNum]);
+      let id = i + size * rowNum
+      row[i] = this.renderSquare(id, this.state.sudoku[id]);
     }
 
     return (
@@ -59,7 +101,7 @@ class Board extends React.Component {
     }
 
     return (
-      <div>
+      <div onKeyDown={this.handleKeyDown}>
         {board}
       </div>
     );
@@ -79,7 +121,7 @@ class Game extends React.Component {
       null, 2,    null, null, null, null, null, 3,    7,
       8,    null, null, 5,    1,    2,    null, null, 4,
     ];
-    
+
     return (
       <div className="game">
         <div className="game-board">
@@ -98,12 +140,6 @@ ReactDOM.render(
 
 
 /*  TODO : 
-      스도쿠 Array 생성
-      스도쿠 Array의 기본값 넣기
-      버튼 선택 이벤트 넣기
       버튼 값 입력 이벤트 넣기
-      스도쿠 Array의 값 변경
       오류 검산?
-
-      큰 상자 겹쳐서 생성
 */
