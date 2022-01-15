@@ -1,6 +1,14 @@
+import React from "react";
 import { useEffect, useState } from "react";
+import { NullableSudokuValue } from "../types";
 
-const Square = ({ id, value, onClick }) => {
+interface SquareProps {
+    id: number;
+    value: NullableSudokuValue;
+    onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
+const Square = ({ id, value, onClick }: SquareProps) => {
     const [editable, setEditable] = useState("");
 
     useEffect(() => {
@@ -22,7 +30,7 @@ const Square = ({ id, value, onClick }) => {
     return (
         <button
             className={"square" + editable + borderClass}
-            id={id}
+            id={id.toString()}
             onClick={onClick}
         >
             {value}

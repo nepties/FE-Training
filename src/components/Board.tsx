@@ -1,27 +1,35 @@
+import React from "react";
 import { useState } from "react";
+import { SudokuValue, NullableSudokuValue } from "../types";
 import Square from "./Square";
 
-const Board = ({ sudoku }) => {
+interface BoardProps {
+    sudoku: NullableSudokuValue[];
+}
+
+const Board = ({ sudoku }: BoardProps) => {
     const [sudoku2, setSudoku2] = useState(sudoku);
     const [selectedBoxId, setSelectedBoxId] = useState(-1);
 
-    const handleClick = (id) => () => {
-        setSelectedBoxId(id);
-    };
-
-    const handleKeyDown = (e) => {
-        if (e.keyCode >= 49 && e.keyCode <= 57) {
-            updateSudoku(e.keyCode - 48);
+    const handleClick = (id: number) => () => {
+        if (sudoku[id] === null) {
+            setSelectedBoxId(id);
         }
     };
 
-    const updateSudoku = (value) => {
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+        if (e.keyCode >= 49 && e.keyCode <= 57) {
+            updateSudoku((e.keyCode - 48) as SudokuValue);
+        }
+    };
+
+    const updateSudoku = (value: SudokuValue) => {
         const newSudoku = sudoku2.slice(); // [...sudoku2]
         newSudoku[selectedBoxId] = value;
         setSudoku2(newSudoku);
     };
 
-    const renderSquare = (id, value) => {
+    const renderSquare = (id: number, value: NullableSudokuValue) => {
         return (
             <Square
                 key={"square" + id}
@@ -32,7 +40,7 @@ const Board = ({ sudoku }) => {
         );
     };
 
-    const renderRow = (size, rowNum) => {
+    const renderRow = (size: number, rowNum: number) => {
         let row = Array(size).fill(null);
         for (let i = 0; i < size; i++) {
             let id = i + size * rowNum;

@@ -1,8 +1,10 @@
+import React from "react";
+import { NullableSudokuValue } from "../types";
 import Board from "./Board";
 
 const Game = () => {
     // prettier-ignore
-    let sudoku = [
+    const sudoku: NullableSudokuValue[] = [
         1,    null, null, 4,    8,    9,    null, null, 6,
         7,    3,    null, null, null, null, null, 4,    null,
         null, null, null, null, null, 1,    2,    9,    5,
