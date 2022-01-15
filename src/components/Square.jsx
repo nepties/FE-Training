@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const Square = ({ id, value }) => {
+const Square = ({ id, value, onClick }) => {
     const [editable, setEditable] = useState("");
 
     useEffect(() => {
@@ -8,10 +8,6 @@ const Square = ({ id, value }) => {
             setEditable(" editable");
         }
     }, []);
-
-    const handleClick = () => {
-        // setEditable('A')
-    };
 
     let borderClass = "";
 
@@ -27,7 +23,7 @@ const Square = ({ id, value }) => {
         <button
             className={"square" + editable + borderClass}
             id={id}
-            onClick={handleClick}
+            onClick={onClick}
         >
             {value}
         </button>

@@ -11,12 +11,12 @@ const Board = ({ sudoku }) => {
 
     const handleKeyDown = (e) => {
         if (e.keyCode >= 49 && e.keyCode <= 57) {
-            console.log(e.keyCode - 48);
+            updateSudoku(e.keyCode - 48);
         }
     };
 
     const updateSudoku = (value) => {
-        const newSudoku = sudoku2.splice(); // [...sudoku2]
+        const newSudoku = sudoku2.slice(); // [...sudoku2]
         newSudoku[selectedBoxId] = value;
         setSudoku2(newSudoku);
     };
