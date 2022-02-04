@@ -1,10 +1,10 @@
 import React from "react";
-import { NullableSudokuValue } from "../types";
+import { NullableSudokuValue } from "../types/types";
 import Board from "./Board";
 
 const Game = () => {
-    // prettier-ignore
-    const sudoku: NullableSudokuValue[] = [
+  // prettier-ignore
+  const sudoku: NullableSudokuValue[] = [
         1,    null, null, 4,    8,    9,    null, null, 6,
         7,    3,    null, null, null, null, null, 4,    null,
         null, null, null, null, null, 1,    2,    9,    5,
@@ -16,13 +16,13 @@ const Game = () => {
         8,    null, null, 5,    1,    2,    null, null, 4,
     ];
 
-    return (
-        <div className="game">
-            <div className="game-board">
-                <Board sudoku={sudoku} />
-            </div>
-        </div>
-    );
+  return (
+    <div className="game">
+      <div className="game-board">
+        <Board sudoku={sudoku} />
+      </div>
+    </div>
+  );
 };
 
 export default Game;
