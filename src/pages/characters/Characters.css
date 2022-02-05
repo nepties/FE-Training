@@ -1,0 +1,14 @@
+.container {
+  padding: 40px 15px 0 15px;
+  margin: 0 auto;
+  max-width: 980px;
+  width: 100%;
+}
+
+.character-header {
+  margin-top: 20px;
+}
+
+.MuiToggleButtonGroup-grouped img {
+  height: 11px;
+}

@@ -46,3 +46,24 @@
 - React Router: https://create-react-app.dev/docs/adding-a-router
 
 ## 2022. 1. 23.
+
+## 2022. 2. 5.
+
+- toggle button 동작, 스타일 수정
+- 컴포넌트 이름
+- 변수 이름
+  - 소문자로 시작. array는 s 추가
+- 파일 구조
+  - https://create-react-app.dev/docs/importing-a-component/#absolute-imports
+- MobX (State Management Library (Redux, Recoil))
+  - https://ko.mobx.js.org/README.html
+  - MobX, mobx-react-lite (함수형 컴포넌트만 지원) / mobx-react (클래스 컴포넌트도 지원)
+  - 사용하지 않을 때의 문제점 1) prop drilling (사실 React Context API로 해결 가능), 2) inefficient rendering
+- index.ts
+  파일 위치 변경시 수정해야 하므로 사용하는것을 추천하지 않음
+
+숙제
+
+- emotion과 같은 CSS in JS 라이브러리의 장점?
+- MobX 공부
+- prisma로 백엔드 만들어보기

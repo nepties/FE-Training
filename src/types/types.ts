@@ -5,6 +5,6 @@ export type NullableSudokuValue = SudokuValue | null;
 export type ButtonInfo = {
   value: string;
   tooltip: string;
-  image: any;
-  text: string;
+  image?: "*.webp";
+  text?: string;
 };
