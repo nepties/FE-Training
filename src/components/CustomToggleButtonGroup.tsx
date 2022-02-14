@@ -1,8 +1,6 @@
 import * as React from "react";
 import ToggleButton from "@mui/material/ToggleButton";
-import ToggleButtonGroup, {
-  ToggleButtonGroupProps,
-} from "@mui/material/ToggleButtonGroup";
+import { ToggleButtonGroup, ToggleButtonGroupProps } from "@mui/material";
 import { ButtonInfo } from "../types/types";
 import { Box, Tooltip } from "@mui/material";
 
@@ -16,22 +14,8 @@ const CustomToggleButtonGroup = ({
   buttonInfos,
   ...otherProps
 }: CustomToggleButtonGroup) => {
-  const [selects, setSelects] = React.useState(() => [] as string[]);
-
-  const handleSelects = (
-    event: React.MouseEvent<HTMLElement>,
-    newSelects: string[],
-  ) => {
-    setSelects(newSelects);
-  };
-
   return (
-    <ToggleButtonGroup
-      value={selects}
-      onChange={handleSelects}
-      aria-label={label}
-      {...otherProps}
-    >
+    <ToggleButtonGroup aria-label={label} {...otherProps}>
       {buttonInfos.map((buttonInfo) => (
         <ToggleButton
           value={buttonInfo.value}

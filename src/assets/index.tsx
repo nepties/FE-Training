@@ -34,3 +34,25 @@ export { default as raceDragon } from "./race_dragon.webp";
 export { default as raceUndead } from "./race_undead.webp";
 export { default as raceWater } from "./race_water.webp";
 export { default as racePlant } from "./race_plant.webp";
+
+// character dots
+export { default as noImage } from "./no-image.webp";
+export { default as pixelFoura } from "./pixel_foura.webp";
+export { default as pixelMisogi } from "./pixel_misogi.webp";
+export { default as pixelRhams } from "./pixel_rhams.webp";
+export { default as pixelSuizen } from "./pixel_suizen.webp";
+
+// character thumbnails
+export { default as thumbAmelia2 } from "./thumb_amelia_2.webp";
+export { default as thumbFoura } from "./thumb_foura.webp";
+export { default as thumbMarina3 } from "./thumb_marina_3.webp";
+export { default as thumbMisogi } from "./thumb_misogi.webp";
+export { default as thumbRhams } from "./thumb_rhams.webp";
+export { default as thumbSera2 } from "./thumb_sera_2.webp";
+export { default as thumbSuizen } from "./thumb_suizen.webp";
+
+// const images: Images = {
+//   'star1': star1,
+// }
+
+// export default images

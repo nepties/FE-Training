@@ -15,6 +15,16 @@ const theme = createTheme({
     },
   },
 
+  typography: {
+    fontFamily: [
+      "gtitle",
+      "noto sans kr",
+      "nanum gothic",
+      "malgun gothic",
+      "돋움",
+      "sans-serif",
+    ].join(","),
+  },
   components: {
     MuiToggleButtonGroup: {
       styleOverrides: {
@@ -25,6 +35,26 @@ const theme = createTheme({
         grouped: {
           padding: "0.25rem 0.5rem",
           lineHeight: "1.5",
+          "&:hover": {
+            backgroundColor: "#ffdca7",
+          },
+          fontSize: "0.875rem",
+          minWidth: "30px",
+        },
+      },
+    },
+    MuiTableCell: {
+      styleOverrides: {
+        root: {
+          padding: "8px",
+          margin: "auto",
+        },
+      },
+    },
+    MuiTableRow: {
+      styleOverrides: {
+        root: {
+          cursor: "pointer",
         },
       },
     },

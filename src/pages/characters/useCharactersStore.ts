@@ -1,7 +1,16 @@
 import { makeAutoObservable } from "mobx";
+import { createContext, useContext } from "react";
 
-class CharactersStore {
+export class CharactersStore {
   starValues: string[] = [];
+  elementValues: string[] = [];
+  flipTypeValues: string[] = [];
+  genderValues: string[] = [];
+  classValues: string[] = [];
+  raceValues: string[] = [];
+  gachaValues: string[] = [];
+  serverValues: string[] = [];
+  query: string = "";
 
   constructor() {
     makeAutoObservable(this);
@@ -10,12 +19,54 @@ class CharactersStore {
   setStarValues = (starValues: string[]) => {
     this.starValues = starValues;
   };
+
+  setElementValues = (elementValues: string[]) => {
+    this.elementValues = elementValues;
+  };
+
+  setFlipTypeValues = (flipTypeValues: string[]) => {
+    this.flipTypeValues = flipTypeValues;
+  };
+
+  setGenderValues = (genderValues: string[]) => {
+    this.genderValues = genderValues;
+  };
+
+  setClassValues = (classValues: string[]) => {
+    this.classValues = classValues;
+  };
+
+  setRaceValues = (raceValues: string[]) => {
+    this.raceValues = raceValues;
+  };
+
+  setGachaValues = (gachaValues: string[]) => {
+    this.gachaValues = gachaValues;
+  };
+
+  setServerValues = (serverValues: string[]) => {
+    this.serverValues = serverValues;
+  };
+
+  setQuery = (query: string) => {
+    this.query = query;
+  };
 }
 
-export const charactersStore = new CharactersStore();
+export const CharactersStoreContext = createContext<CharactersStore | null>(
+  null,
+);
 
-// const CharacersStoreContext = <CharactersStore | null>(null)
+const useCharactersStore = () => {
+  const charactersStore = useContext(CharactersStoreContext);
 
-// const useCharactersStore = () => {
+  if (!charactersStore) {
+    throw new Error(
+      "useCharactersStore must be used under CharactersStoreContext.Provider",
+    );
+  }
 
-// }
+  return charactersStore;
+};
+
+export default useCharactersStore;
