@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import CustomToggleButtonGroup from "components/CustomToggleButtonGroup";
 import SearchBar from "components/SearchBar";
-import * as images from "assets";
+import images from "assets";
 import { ButtonInfo } from "types/types";
 
 import { observer } from "mobx-react-lite";

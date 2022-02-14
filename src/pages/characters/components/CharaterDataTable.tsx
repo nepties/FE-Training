@@ -11,13 +11,7 @@ import {
 
 import { Gender, Race, TableHeadNames } from "types/types";
 import sampleCharacterDatas from "../data/SampleCharacterData";
-import * as images from "assets";
-
-interface Images {
-  [key: string]: "*.webp";
-}
-
-const images2: Images = images;
+import images from "assets";
 
 const characterTableHeadNames: TableHeadNames[] = [
   { align: "center", name: "썸네일" },
@@ -36,12 +30,11 @@ const characterTableHeadNames: TableHeadNames[] = [
 
 const getImage = (type: string, element: string): "*.webp" => {
   if (
-    images2[type + element[0].toUpperCase() + element.substring(1)] ===
-    undefined
+    images[type + element[0].toUpperCase() + element.substring(1)] === undefined
   ) {
-    return images2["noImage"];
+    return images["noImage"];
   }
-  return images2[type + element[0].toUpperCase() + element.substring(1)];
+  return images[type + element[0].toUpperCase() + element.substring(1)];
 };
 
 const getGender = (gender: Gender): string => {

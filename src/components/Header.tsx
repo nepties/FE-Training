@@ -18,8 +18,8 @@ import {
 } from "react-router-dom";
 
 const pages = [
-  { name: "Characters", path: "/characters" },
-  { name: "Equipments", path: "/equipments" },
+  { name: "캐릭터", path: "/characters" },
+  { name: "장비", path: "/equipments" },
   { name: "Sudoku", path: "/sudoku" },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];

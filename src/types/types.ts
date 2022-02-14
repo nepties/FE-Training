@@ -42,11 +42,15 @@ export type CharacterInfo = {
   gender: Gender;
   race: Race[];
   weight: number;
-  rating: number;
+  rating: number | "-";
   board2: boolean;
 };
 
 export type TableHeadNames = {
   align: "center" | "left" | "inherit" | "right" | "justify" | undefined;
   name: string;
+};
+
+export type Images = {
+  [key: string]: "*.webp";
 };
