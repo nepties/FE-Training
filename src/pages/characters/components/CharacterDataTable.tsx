@@ -9,9 +9,13 @@ import {
   Box,
 } from "@mui/material";
 
-import { Gender, Race, TableHeadNames } from "types/types";
+import { Gender, Race, TableHeadNames, CharacterInfo } from "types/types";
 import sampleCharacterDatas from "../data/SampleCharacterData";
 import images from "assets";
+
+interface CharacterDataTableProps {
+  onClick: (info: CharacterInfo) => void;
+}
 
 const characterTableHeadNames: TableHeadNames[] = [
   { align: "center", name: "썸네일" },
@@ -41,14 +45,12 @@ const getGender = (gender: Gender): string => {
   switch (gender) {
     case "male":
       return "男";
-      break;
     case "female":
       return "女";
     case "unidentified":
       return "?";
     default:
       return "ERROR";
-      break;
   }
 };
 
@@ -67,14 +69,18 @@ const getRace = (race: Race[]): string => {
   return raceString;
 };
 
-const CharacterDataTable = () => {
+const CharacterDataTable = ({ onClick }: CharacterDataTableProps) => {
   return (
     <TableContainer component={Box}>
       <Table aria-label="character table">
         <TableHead>
           <TableRow>
-            {characterTableHeadNames.map((headName) => (
-              <TableCell align={headName.align} sx={{ fontWeight: "bold" }}>
+            {characterTableHeadNames.map((headName, index) => (
+              <TableCell
+                key={index}
+                align={headName.align}
+                sx={{ fontWeight: "bold" }}
+              >
                 {headName.name}
               </TableCell>
             ))}
@@ -88,6 +94,9 @@ const CharacterDataTable = () => {
                 "&:last-child td, &:last-child th": { border: 0 },
               }}
               hover
+              onClick={() => {
+                onClick(row);
+              }}
             >
               <TableCell align="center">
                 <img className="thumb" src={getImage("thumb", row.prefix)} />

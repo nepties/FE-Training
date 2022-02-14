@@ -1,5 +1,6 @@
 import { makeAutoObservable } from "mobx";
 import { createContext, useContext } from "react";
+import { CharacterInfo } from "types/types";
 
 export class CharactersStore {
   starValues: string[] = [];
@@ -11,6 +12,8 @@ export class CharactersStore {
   gachaValues: string[] = [];
   serverValues: string[] = [];
   query: string = "";
+  open: boolean = false;
+  dialogCharacterInfo: CharacterInfo = {} as CharacterInfo;
 
   constructor() {
     makeAutoObservable(this);
@@ -50,6 +53,14 @@ export class CharactersStore {
 
   setQuery = (query: string) => {
     this.query = query;
+  };
+
+  setOpen = (open: boolean) => {
+    this.open = open;
+  };
+
+  setDialogCharacterInfo = (info: CharacterInfo) => {
+    this.dialogCharacterInfo = info;
   };
 }
 

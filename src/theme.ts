@@ -35,9 +35,6 @@ const theme = createTheme({
         grouped: {
           padding: "0.25rem 0.5rem",
           lineHeight: "1.5",
-          "&:hover": {
-            backgroundColor: "#ffdca7",
-          },
           fontSize: "0.875rem",
           minWidth: "30px",
         },

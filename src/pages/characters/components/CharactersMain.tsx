@@ -1,15 +1,32 @@
 import React from "react";
 
 import { observer } from "mobx-react-lite";
-import CharacterDataTable from "./CharaterDataTable";
+import CharacterDataTable from "./CharacterDataTable";
 import useCharactersStore from "../useCharactersStore";
+import CharacterDialog from "./CharacterDialog";
+import { CharacterInfo } from "types/types";
 
 const CharactersMain = observer(() => {
-  const { query } = useCharactersStore();
+  const { open, setOpen, dialogCharacterInfo, setDialogCharacterInfo } =
+    useCharactersStore();
+
+  const openDialog = (info: CharacterInfo) => {
+    setOpen(true);
+    setDialogCharacterInfo(info);
+  };
+
+  const closeDialog = () => {
+    setOpen(false);
+  };
 
   return (
     <div>
-      {query} <CharacterDataTable />
+      <CharacterDataTable onClick={openDialog} />
+      <CharacterDialog
+        open={open}
+        info={dialogCharacterInfo}
+        onClose={closeDialog}
+      />
     </div>
   );
 });
