@@ -74,6 +74,46 @@ import { default as thumbSilty } from "./thumb_silty.webp";
 import { default as thumbSoties } from "./thumb_soties.webp";
 import { default as thumbSuizen } from "./thumb_suizen.webp";
 
+// character full images
+
+import { default as awakenAmelia2 } from "./awaken_amelia_2.jpg";
+import { default as awakenArly2 } from "./awaken_arly_2.jpg";
+import { default as awakenBulleta } from "./awaken_bulleta.jpg";
+import { default as awakenDear } from "./awaken_dear.jpg";
+import { default as awakenEliya } from "./awaken_eliya.jpg";
+import { default as awakenFoura } from "./awaken_foura.jpg";
+import { default as awakenHanabi } from "./awaken_hanabi.jpg";
+import { default as awakenJalil } from "./awaken_jalil.jpg";
+import { default as awakenLove2 } from "./awaken_love_2.jpg";
+import { default as awakenMarina3 } from "./awaken_marina_3.jpg";
+import { default as awakenMidi } from "./awaken_midi.jpg";
+import { default as awakenMisogi } from "./awaken_misogi.jpg";
+import { default as awakenPosit } from "./awaken_posit.jpg";
+import { default as awakenRhams } from "./awaken_rhams.jpg";
+import { default as awakenSera2 } from "./awaken_sera_2.jpg";
+import { default as awakenSilty } from "./awaken_silty.jpg";
+import { default as awakenSoties } from "./awaken_soties.jpg";
+import { default as awakenSuizen } from "./awaken_suizen.jpg";
+
+import { default as fullAmelia2 } from "./full_amelia_2.jpg";
+import { default as fullArly2 } from "./full_arly_2.jpg";
+import { default as fullBulleta } from "./full_bulleta.jpg";
+import { default as fullDear } from "./full_dear.jpg";
+import { default as fullEliya } from "./full_eliya.jpg";
+import { default as fullFoura } from "./full_foura.jpg";
+import { default as fullHanabi } from "./full_hanabi.jpg";
+import { default as fullJalil } from "./full_jalil.jpg";
+import { default as fullLove2 } from "./full_love_2.jpg";
+import { default as fullMarina3 } from "./full_marina_3.jpg";
+import { default as fullMidi } from "./full_midi.jpg";
+import { default as fullMisogi } from "./full_misogi.jpg";
+import { default as fullPosit } from "./full_posit.jpg";
+import { default as fullRhams } from "./full_rhams.jpg";
+import { default as fullSera2 } from "./full_sera_2.jpg";
+import { default as fullSilty } from "./full_silty.jpg";
+import { default as fullSoties } from "./full_soties.jpg";
+import { default as fullSuizen } from "./full_suizen.jpg";
+
 const images: Images = {
   star1: star1,
   star2: star2,
@@ -144,6 +184,44 @@ const images: Images = {
   thumbPosit: thumbPosit,
   thumbSilty: thumbSilty,
   thumbSoties: thumbSoties,
+
+  awakenAmelia2: awakenAmelia2,
+  awakenFoura: awakenFoura,
+  awakenMarina3: awakenMarina3,
+  awakenMisogi: awakenMisogi,
+  awakenRhams: awakenRhams,
+  awakenSera2: awakenSera2,
+  awakenSuizen: awakenSuizen,
+  awakenArly2: awakenArly2,
+  awakenBulleta: awakenBulleta,
+  awakenDear: awakenDear,
+  awakenEliya: awakenEliya,
+  awakenHanabi: awakenHanabi,
+  awakenJalil: awakenJalil,
+  awakenLove2: awakenLove2,
+  awakenMidi: awakenMidi,
+  awakenPosit: awakenPosit,
+  awakenSilty: awakenSilty,
+  awakenSoties: awakenSoties,
+
+  fullAmelia2: fullAmelia2,
+  fullFoura: fullFoura,
+  fullMarina3: fullMarina3,
+  fullMisogi: fullMisogi,
+  fullRhams: fullRhams,
+  fullSera2: fullSera2,
+  fullSuizen: fullSuizen,
+  fullArly2: fullArly2,
+  fullBulleta: fullBulleta,
+  fullDear: fullDear,
+  fullEliya: fullEliya,
+  fullHanabi: fullHanabi,
+  fullJalil: fullJalil,
+  fullLove2: fullLove2,
+  fullMidi: fullMidi,
+  fullPosit: fullPosit,
+  fullSilty: fullSilty,
+  fullSoties: fullSoties,
 };
 
 export default images;

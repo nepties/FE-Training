@@ -99,19 +99,32 @@ const CharacterDataTable = ({ onClick }: CharacterDataTableProps) => {
               }}
             >
               <TableCell align="center">
-                <img className="thumb" src={getImage("thumb", row.prefix)} />
+                <img
+                  className="thumb"
+                  src={getImage("thumb", row.prefix)}
+                  alt=""
+                />
               </TableCell>
               <TableCell align="center">
-                <img className="pixel" src={getImage("pixel", row.prefix)} />
+                <img
+                  className="pixel"
+                  src={getImage("pixel", row.prefix)}
+                  alt=""
+                />
               </TableCell>
               <TableCell align="center">
                 <img
                   className="element"
                   src={getImage("element", row.element)}
+                  alt=""
                 />
               </TableCell>
               <TableCell align="center">
-                <img className="rarity" src={getImage("star", row.rarity)} />
+                <img
+                  className="rarity"
+                  src={getImage("star", row.rarity)}
+                  alt=""
+                />
               </TableCell>
               <TableCell align="left" sx={{ fontSize: "0.9rem" }}>
                 {row.name}
@@ -120,10 +133,15 @@ const CharacterDataTable = ({ onClick }: CharacterDataTableProps) => {
                 <img
                   className="flip-type"
                   src={getImage("flip", row.flipType)}
+                  alt=""
                 />
               </TableCell>
               <TableCell align="center">
-                <img className="class" src={getImage("class", row.class)} />
+                <img
+                  className="class"
+                  src={getImage("class", row.class)}
+                  alt=""
+                />
               </TableCell>
               <TableCell align="center" sx={{ fontSize: "0.9rem" }}>
                 {getGender(row.gender)}

@@ -5,10 +5,10 @@ import { red } from "@mui/material/colors";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#FFFFFF",
+      main: "#81d4fa",
     },
     secondary: {
-      main: "#19857b",
+      main: "#f9a825",
     },
     error: {
       main: red.A400,
@@ -37,6 +37,18 @@ const theme = createTheme({
           lineHeight: "1.5",
           fontSize: "0.875rem",
           minWidth: "30px",
+          "&.Mui-selected": {
+            backgroundColor: "#fff2bd",
+            borderColor: "rgba(0, 0, 0, 0.12)",
+          },
+          "&.Mui-selected:hover": {
+            backgroundColor: "#fff2bd",
+            borderColor: "rgba(0, 0, 0, 0.12)",
+          },
+          ":hover": {
+            backgroundColor: "#fff2bd",
+            borderColor: "rgba(0, 0, 0, 0.12)",
+          },
         },
       },
     },

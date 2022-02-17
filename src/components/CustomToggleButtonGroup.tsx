@@ -4,7 +4,7 @@ import { ToggleButtonGroup, ToggleButtonGroupProps } from "@mui/material";
 import { ButtonInfo } from "../types/types";
 import { Box, Tooltip } from "@mui/material";
 
-interface CustomToggleButtonGroup extends ToggleButtonGroupProps {
+interface CustomToggleButtonGroupProps extends ToggleButtonGroupProps {
   label: string;
   buttonInfos: ButtonInfo[];
 }
@@ -13,7 +13,7 @@ const CustomToggleButtonGroup = ({
   label,
   buttonInfos,
   ...otherProps
-}: CustomToggleButtonGroup) => {
+}: CustomToggleButtonGroupProps) => {
   return (
     <ToggleButtonGroup aria-label={label} {...otherProps}>
       {buttonInfos.map((buttonInfo) => (
@@ -25,7 +25,7 @@ const CustomToggleButtonGroup = ({
           <Tooltip key={buttonInfo.value} title={buttonInfo.tooltip} arrow>
             <Box display="flex" alignItems="center" height="21px">
               {buttonInfo.image !== undefined ? (
-                <img src={buttonInfo.image} />
+                <img src={buttonInfo.image} alt="" />
               ) : (
                 buttonInfo.text
               )}

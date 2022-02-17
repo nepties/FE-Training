@@ -13,7 +13,19 @@ export class CharactersStore {
   serverValues: string[] = [];
   query: string = "";
   open: boolean = false;
-  dialogCharacterInfo: CharacterInfo = {} as CharacterInfo;
+  dialogCharacterInfo: CharacterInfo = {
+    prefix: "misogi",
+    element: "fire",
+    rarity: "5",
+    name: "미소기",
+    flipType: "special",
+    class: "debuffer",
+    gender: "female",
+    race: ["human"],
+    weight: 400,
+    rating: 2.25,
+    board2: false,
+  };
 
   constructor() {
     makeAutoObservable(this);
