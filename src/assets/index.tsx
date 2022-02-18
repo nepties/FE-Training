@@ -4,25 +4,30 @@ import { Images } from "types/types";
 import { default as b404 } from "./404_bg.png";
 import { default as title404 } from "./p404_title.png";
 
+// rarity icon images
 import { default as star1 } from "./star1.webp";
 import { default as star2 } from "./star2.webp";
 import { default as star3 } from "./star3.webp";
 import { default as star4 } from "./star4.webp";
 import { default as star5 } from "./star5.webp";
 
+// element icon images
 import { default as elementFire } from "./element_fire.webp";
 import { default as elementWater } from "./element_water.webp";
 import { default as elementWind } from "./element_wind.webp";
 import { default as elementThunder } from "./element_thunder.webp";
 import { default as elementLight } from "./element_light.webp";
 import { default as elementDark } from "./element_dark.webp";
+import { default as elementNone } from "./element_none.webp";
 
+// filp type icon images
 import { default as flipFighter } from "./flip_fighter.webp";
 import { default as flipSword } from "./flip_sword.webp";
 import { default as flipShooting } from "./flip_shooting.webp";
 import { default as flipSupport } from "./flip_support.webp";
 import { default as flipSpecial } from "./flip_special.webp";
 
+// class type icon images
 import { default as classAttacker } from "./class_attacker.webp";
 import { default as classTanker } from "./class_tanker.webp";
 import { default as classHealer } from "./class_healer.webp";
@@ -30,6 +35,7 @@ import { default as classSupporter } from "./class_supporter.webp";
 import { default as classDebuffer } from "./class_debuffer.webp";
 import { default as classBalance } from "./class_balance.webp";
 
+// race type icon images
 import { default as raceHuman } from "./race_human.webp";
 import { default as raceSpirit } from "./race_spirit.webp";
 import { default as raceDemon } from "./race_demon.webp";
@@ -41,7 +47,7 @@ import { default as raceUndead } from "./race_undead.webp";
 import { default as raceWater } from "./race_water.webp";
 import { default as racePlant } from "./race_plant.webp";
 
-// character dots
+// character dots images
 import { default as noImage } from "./no-image.webp";
 import { default as pixelArly2 } from "./pixel_arly_2.webp";
 import { default as pixelBulleta } from "./pixel_bulleta.webp";
@@ -58,7 +64,7 @@ import { default as pixelSilty } from "./pixel_silty.webp";
 import { default as pixelSoties } from "./pixel_soties.webp";
 import { default as pixelSuizen } from "./pixel_suizen.webp";
 
-// character thumbnails
+// character thumbnails images
 import { default as thumbAmelia2 } from "./thumb_amelia_2.webp";
 import { default as thumbArly2 } from "./thumb_arly_2.webp";
 import { default as thumbBulleta } from "./thumb_bulleta.webp";
@@ -78,8 +84,7 @@ import { default as thumbSilty } from "./thumb_silty.webp";
 import { default as thumbSoties } from "./thumb_soties.webp";
 import { default as thumbSuizen } from "./thumb_suizen.webp";
 
-// character full images
-
+// character full images (awaken, full)
 import { default as awakenAmelia2 } from "./awaken_amelia_2.jpg";
 import { default as awakenArly2 } from "./awaken_arly_2.jpg";
 import { default as awakenBulleta } from "./awaken_bulleta.jpg";
@@ -118,18 +123,28 @@ import { default as fullSilty } from "./full_silty.jpg";
 import { default as fullSoties } from "./full_soties.jpg";
 import { default as fullSuizen } from "./full_suizen.jpg";
 
+// equipment images
+import { default as equipmentHaniwaSpear } from "./equipment_haniwa_spear.webp";
+import { default as equipmentBeastSword } from "./equipment_beast_sword.webp";
+
 const images: Images = {
+  b404: b404,
+  title404: title404,
+
   star1: star1,
   star2: star2,
   star3: star3,
   star4: star4,
   star5: star5,
+
   elementFire: elementFire,
   elementWater: elementWater,
   elementWind: elementWind,
   elementThunder: elementThunder,
   elementLight: elementLight,
   elementDark: elementDark,
+  elementNone: elementNone,
+
   flipFighter: flipFighter,
   flipSword: flipSword,
   flipShooting: flipShooting,
@@ -226,6 +241,9 @@ const images: Images = {
   fullPosit: fullPosit,
   fullSilty: fullSilty,
   fullSoties: fullSoties,
+
+  equipmentHaniwaSpear: equipmentHaniwaSpear,
+  equipmentBeastSword: equipmentBeastSword,
 };
 
 export default images;

@@ -9,7 +9,14 @@ export type ButtonInfo = {
   text?: string;
 };
 
-export type Element = "fire" | "water" | "wind" | "thunder" | "light" | "dark";
+export type Element =
+  | "fire"
+  | "water"
+  | "wind"
+  | "thunder"
+  | "light"
+  | "dark"
+  | "none";
 export type Rarity = "1" | "2" | "3" | "4" | "5";
 export type FlipType = "fighter" | "sword" | "shooting" | "support" | "special";
 export type Class =
@@ -60,9 +67,22 @@ export type CharacterInfo = {
   abilities: string[][];
 };
 
+export type EquipmentInfo = {
+  prefix: string;
+  element: Element;
+  rarity: Rarity;
+  name: string;
+  hp: { max: number; min: number };
+  atk: { max: number; min: number };
+  basic: string[];
+  max: string[];
+  awaken?: string[];
+  obtain: string[];
+};
+
 export type TableHeadNames = {
   align: "center" | "left" | "inherit" | "right" | "justify" | undefined;
-  name: string;
+  name: string | string[];
 };
 
 export type Images = {

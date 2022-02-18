@@ -1,0 +1,57 @@
+.container {
+  padding: 40px 15px 0 15px;
+  margin: 0 auto;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.equipment-header {
+  margin-top: 20px;
+}
+
+.MuiToggleButtonGroup-grouped img {
+  height: 11px;
+}
+
+img.equipment-thumb {
+  width: 50px;
+  height: 50px;
+}
+
+img.element,
+img.rarity {
+  height: 18px;
+}
+
+.MuiDialogActions-root .MuiButton-root {
+  width: 100%;
+}
+
+.equipment-table td div.equipment-text:not(:last-child) {
+  padding-bottom: 1rem;
+}
+
+.equipment-table .blur {
+  color: #6c757d;
+}
+
+.equipment-table .italic {
+  font-style: italic;
+}
+
+.equipment-dialog div.equipment-text:not(:last-child) {
+  padding-bottom: 1rem;
+}
+
+.equipment-dialog .blur {
+  color: #6c757d;
+}
+
+.equipment-dialog .italic {
+  font-style: italic;
+}
+
+.equipment-dialog .MuiDivider-root {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}

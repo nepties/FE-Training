@@ -62,7 +62,7 @@ const raceButtonsInfos: ButtonInfo[] = [
 const gachaButtonsInfos: ButtonInfo[] = [
   { value: "normal", tooltip: "통상", text: "통상" },
   { value: "limited", tooltip: "한정", text: "한정" },
-  { value: "event", tooltip: "이벤트", text: "이벤트" },
+  { value: "etc", tooltip: "코인 교환, 배포 등", text: "기타" },
 ];
 
 const CharactersHeader = observer(() => {
@@ -192,6 +192,7 @@ const CharactersHeader = observer(() => {
         value={query}
         onChange={handleChangeQuery}
         onReset={handleResetQuery}
+        placeholder="검색 (캐릭명, 별명, 어빌 등)"
       />
     </div>
   );

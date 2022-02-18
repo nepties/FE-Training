@@ -100,14 +100,14 @@ const CharacterDataTable = ({ onClick }: CharacterDataTableProps) => {
             >
               <TableCell align="center">
                 <img
-                  className="thumb"
+                  className="character-thumb"
                   src={getImage("thumb", row.prefix)}
                   alt=""
                 />
               </TableCell>
               <TableCell align="center">
                 <img
-                  className="pixel"
+                  className="character-pixel"
                   src={getImage("pixel", row.prefix)}
                   alt=""
                 />

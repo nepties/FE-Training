@@ -9,9 +9,15 @@ interface SearchBarProps {
   ) => void;
   onReset: (e: React.MouseEvent<HTMLButtonElement>) => void;
   value: string;
+  placeholder: string;
 }
 
-const SearchBar = ({ onChange, onReset, value }: SearchBarProps) => {
+const SearchBar = ({
+  onChange,
+  onReset,
+  value,
+  placeholder,
+}: SearchBarProps) => {
   return (
     <Box
       sx={{
@@ -36,7 +42,7 @@ const SearchBar = ({ onChange, onReset, value }: SearchBarProps) => {
         value={value}
         onChange={onChange}
         fullWidth
-        placeholder="검색 (캐릭명, 별명, 어빌 등)"
+        placeholder={placeholder}
         sx={{ ml: "0.5rem", fontSize: "0.875rem" }}
       ></InputBase>
       <IconButton onClick={onReset} size="small" sx={{ p: "4px" }}>

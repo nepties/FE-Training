@@ -7,11 +7,15 @@ interface CharacterDetailTableProps {
   info: CharacterInfo;
 }
 
-const TextToJSXElement = (text: string[]): JSX.Element => {
+const TextToJSXElement = (
+  text: string[],
+  className: string,
+  key: number,
+): JSX.Element => {
   return (
-    <div className="character-detail-text">
-      {text.map((line) => (
-        <div>{line}</div>
+    <div key={key} className={className}>
+      {text.map((line, index) => (
+        <div key={index}>{line}</div>
       ))}
     </div>
   );
@@ -72,17 +76,17 @@ const CharacterDetailTable = ({ info }: CharacterDetailTableProps) => {
                 alt=""
               />
               <img
-                className="element"
+                className="star"
                 src={getImage("star", info.rarity)}
                 alt=""
               />
               <img
-                className="element"
+                className="flip-type"
                 src={getImage("flip", info.flipType)}
                 alt=""
               />
               <img
-                className="element"
+                className="class"
                 src={getImage("class", info.class)}
                 alt=""
               />
@@ -98,7 +102,7 @@ const CharacterDetailTable = ({ info }: CharacterDetailTableProps) => {
               <b>{info.skill.name}</b>
               <small> (스킬 웨이트: {info.skill.weight})</small>
             </div>
-            {TextToJSXElement(info.skill.text)}
+            {TextToJSXElement(info.skill.text, "character-detail-text", 1)}
             <div className="character-detail-text">{info.skill.effect}</div>
           </td>
         </tr>
@@ -106,13 +110,15 @@ const CharacterDetailTable = ({ info }: CharacterDetailTableProps) => {
           <th>리더 특성</th>
           <td>
             <b>{info.leader.name}</b>
-            {TextToJSXElement(info.leader.text)}
+            {TextToJSXElement(info.leader.text, "character-detail-text", 1)}
           </td>
         </tr>
         <tr>
           <th>어빌리티</th>
           <td className="character-detail-ability">
-            {info.abilities.map((ability) => TextToJSXElement(ability))}
+            {info.abilities.map((ability, index) =>
+              TextToJSXElement(ability, "character-detail-text", index),
+            )}
           </td>
         </tr>
       </tbody>
