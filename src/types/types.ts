@@ -32,6 +32,18 @@ export type Race =
   | "water"
   | "plant";
 
+export type Skill = {
+  name: string;
+  weight: number;
+  text: string[];
+  effect: string;
+};
+
+export type Leader = {
+  name: string;
+  text: string[];
+};
+
 export type CharacterInfo = {
   prefix: string;
   element: Element;
@@ -41,9 +53,11 @@ export type CharacterInfo = {
   class: Class;
   gender: Gender;
   race: Race[];
-  weight: number;
+  skill: Skill;
   rating: number | "-";
   board2: boolean;
+  leader: Leader;
+  abilities: string[][];
 };
 
 export type TableHeadNames = {

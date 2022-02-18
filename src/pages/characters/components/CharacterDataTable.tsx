@@ -150,7 +150,7 @@ const CharacterDataTable = ({ onClick }: CharacterDataTableProps) => {
                 {getRace(row.race)}
               </TableCell>
               <TableCell align="center" sx={{ fontSize: "0.9rem" }}>
-                {row.weight}
+                {row.skill.weight}
               </TableCell>
               <TableCell align="center" sx={{ fontSize: "0.9rem" }}>
                 {row.rating}

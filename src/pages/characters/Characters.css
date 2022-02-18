@@ -28,10 +28,10 @@
   object-position: 50% 47%;
 }
 
-.MuiTableCell-root img.element,
-.MuiTableCell-root img.rarity,
-.MuiTableCell-root img.flip-type,
-.MuiTableCell-root img.class {
+img.element,
+img.rarity,
+img.flip-type,
+img.class {
   height: 18px;
 }
 
@@ -52,6 +52,7 @@
   margin-bottom: 1rem;
   background-color: transparent;
   border-collapse: collapse;
+  font-size: 0.9rem;
 }
 
 .character-detail-table th {
@@ -64,4 +65,13 @@
 
 .character-detail-table td {
   border: 1px solid #dee2e6;
+  padding: 5px;
+}
+
+.character-detail-table td small {
+  color: #6c757d;
+}
+
+.character-detail-table td div.character-detail-text:not(:first-child) {
+  padding-top: 1rem;
 }

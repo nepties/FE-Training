@@ -3,7 +3,6 @@ import CustomToggleButtonGroup from "components/CustomToggleButtonGroup";
 import SearchBar from "components/SearchBar";
 import images from "assets";
 import { ButtonInfo } from "types/types";
-
 import { observer } from "mobx-react-lite";
 import useCharactersStore from "../useCharactersStore";
 
@@ -66,10 +65,6 @@ const gachaButtonsInfos: ButtonInfo[] = [
   { value: "event", tooltip: "이벤트", text: "이벤트" },
 ];
 
-const serverButtonsInfos: ButtonInfo[] = [
-  { value: "global", tooltip: "글로벌", text: "글로벌" },
-];
-
 const CharactersHeader = observer(() => {
   const {
     starValues,
@@ -86,8 +81,6 @@ const CharactersHeader = observer(() => {
     setRaceValues,
     gachaValues,
     setGachaValues,
-    serverValues,
-    setServerValues,
     query,
     setQuery,
   } = useCharactersStore();
@@ -139,13 +132,6 @@ const CharactersHeader = observer(() => {
     values: string[],
   ) => {
     setGachaValues(values);
-  };
-
-  const handleChangeServerButtonGroup = (
-    e: React.MouseEvent,
-    values: string[],
-  ) => {
-    setServerValues(values);
   };
 
   const handleChangeQuery = (
@@ -201,12 +187,6 @@ const CharactersHeader = observer(() => {
         buttonInfos={gachaButtonsInfos}
         value={gachaValues}
         onChange={handleChangeGachaButtonGroup}
-      />
-      <CustomToggleButtonGroup
-        label="server"
-        buttonInfos={serverButtonsInfos}
-        value={serverValues}
-        onChange={handleChangeServerButtonGroup}
       />
       <SearchBar
         value={query}

@@ -1,6 +1,7 @@
 import { makeAutoObservable } from "mobx";
 import { createContext, useContext } from "react";
 import { CharacterInfo } from "types/types";
+import sampleCharacterDatas from "./data/SampleCharacterData";
 
 export class CharactersStore {
   starValues: string[] = [];
@@ -10,22 +11,9 @@ export class CharactersStore {
   classValues: string[] = [];
   raceValues: string[] = [];
   gachaValues: string[] = [];
-  serverValues: string[] = [];
   query: string = "";
   open: boolean = false;
-  dialogCharacterInfo: CharacterInfo = {
-    prefix: "misogi",
-    element: "fire",
-    rarity: "5",
-    name: "미소기",
-    flipType: "special",
-    class: "debuffer",
-    gender: "female",
-    race: ["human"],
-    weight: 400,
-    rating: 2.25,
-    board2: false,
-  };
+  dialogCharacterInfo: CharacterInfo = sampleCharacterDatas[0];
 
   constructor() {
     makeAutoObservable(this);
@@ -57,10 +45,6 @@ export class CharactersStore {
 
   setGachaValues = (gachaValues: string[]) => {
     this.gachaValues = gachaValues;
-  };
-
-  setServerValues = (serverValues: string[]) => {
-    this.serverValues = serverValues;
   };
 
   setQuery = (query: string) => {
