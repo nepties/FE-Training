@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Main, Equipments, Sudoku } from "./pages";
-import CharactersPage from "./pages/characters/CharactersPage";
+import { NotFound, Characters, Equipments, Sudoku } from "./pages";
 
 import "./App.css";
 import Header from "./components/Header";
@@ -11,10 +10,11 @@ const App = () => {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/characters" element={<CharactersPage />} />
+        <Route path="/" element={<Characters />} />
+        <Route path="/characters" element={<Characters />} />
         <Route path="/equipments" element={<Equipments />} />
         <Route path="/sudoku" element={<Sudoku />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

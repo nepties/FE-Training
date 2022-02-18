@@ -1,5 +1,9 @@
 import { Images } from "types/types";
 
+// 404page images
+import { default as b404 } from "./404_bg.png";
+import { default as title404 } from "./p404_title.png";
+
 import { default as star1 } from "./star1.webp";
 import { default as star2 } from "./star2.webp";
 import { default as star3 } from "./star3.webp";

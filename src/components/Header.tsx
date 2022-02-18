@@ -96,7 +96,9 @@ const Header = () => {
                   component={RouterLink}
                   to={page.path}
                 >
-                  <Typography textAlign="center">{page.name}</Typography>
+                  <Typography sx={{ textAlign: "center" }}>
+                    {page.name}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -116,7 +118,12 @@ const Header = () => {
                 to={page.path}
                 key={page.name}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "black", display: "block" }}
+                sx={{
+                  my: 2,
+                  color: "black",
+                  display: "block",
+                  textAlign: "center",
+                }}
               >
                 {page.name}
               </Button>
