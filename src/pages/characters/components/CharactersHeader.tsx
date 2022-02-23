@@ -59,7 +59,7 @@ const raceButtonsInfos: ButtonInfo[] = [
   { value: "plant", tooltip: "식물", image: images.racePlant },
 ];
 
-const gachaButtonsInfos: ButtonInfo[] = [
+const obtainButtonsInfos: ButtonInfo[] = [
   { value: "normal", tooltip: "통상", text: "통상" },
   { value: "limited", tooltip: "한정", text: "한정" },
   { value: "etc", tooltip: "코인 교환, 배포 등", text: "기타" },
@@ -79,8 +79,8 @@ const CharactersHeader = observer(() => {
     setClassValues,
     raceValues,
     setRaceValues,
-    gachaValues,
-    setGachaValues,
+    obtainValues,
+    setObtainValues,
     query,
     setQuery,
   } = useCharactersStore();
@@ -127,11 +127,11 @@ const CharactersHeader = observer(() => {
     setRaceValues(values);
   };
 
-  const handleChangeGachaButtonGroup = (
+  const handleChangeObtainButtonGroup = (
     e: React.MouseEvent,
     values: string[],
   ) => {
-    setGachaValues(values);
+    setObtainValues(values);
   };
 
   const handleChangeQuery = (
@@ -183,10 +183,10 @@ const CharactersHeader = observer(() => {
         onChange={handleChangeRaceButtonGroup}
       />
       <CustomToggleButtonGroup
-        label="gacha"
-        buttonInfos={gachaButtonsInfos}
-        value={gachaValues}
-        onChange={handleChangeGachaButtonGroup}
+        label="obtain"
+        buttonInfos={obtainButtonsInfos}
+        value={obtainValues}
+        onChange={handleChangeObtainButtonGroup}
       />
       <SearchBar
         value={query}

@@ -1,14 +1,20 @@
-import React from "react";
-
+import React, { useEffect } from "react";
 import { observer } from "mobx-react-lite";
-import EquipmentDataTable from "./EquipmentDataTable";
+
 import useEquipmentsStore from "../useEquipmentsStore";
+
+import EquipmentDataTable from "./EquipmentDataTable";
 import EquipmentDialog from "./EquipmentDialog";
 import { EquipmentInfo } from "types/types";
 
 const EquipmentsMain = observer(() => {
-  const { open, setOpen, dialogEquipmentInfo, setDialogEquipmentInfo } =
-    useEquipmentsStore();
+  const {
+    open,
+    setOpen,
+    dialogEquipmentInfo,
+    setDialogEquipmentInfo,
+    fetchEquipmentData,
+  } = useEquipmentsStore();
 
   const openDialog = (info: EquipmentInfo) => {
     setOpen(true);
@@ -19,15 +25,19 @@ const EquipmentsMain = observer(() => {
     setOpen(false);
   };
 
+  useEffect(() => {
+    fetchEquipmentData();
+  }, []);
+
   return (
-    <div>
+    <>
       <EquipmentDataTable onClick={openDialog} />
       <EquipmentDialog
         open={open}
         info={dialogEquipmentInfo}
         onClose={closeDialog}
       />
-    </div>
+    </>
   );
 });
 

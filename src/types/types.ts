@@ -39,6 +39,8 @@ export type Race =
   | "water"
   | "plant";
 
+export type CharacterObtain = "normal" | "limited" | "etc";
+
 export type Skill = {
   name: string;
   weight: number;
@@ -64,7 +66,13 @@ export type CharacterInfo = {
   rating: number | "-";
   board2: boolean;
   leader: Leader;
-  abilities: string[][];
+  ability1: string[];
+  ability2: string[];
+  ability3: string[];
+  ability4?: string[];
+  ability5?: string[];
+  ability6?: string[];
+  obtain: CharacterObtain;
 };
 
 export type EquipmentInfo = {
@@ -78,9 +86,10 @@ export type EquipmentInfo = {
   max: string[];
   awaken?: string[];
   obtain: string[];
+  gacha: "nonGacha" | "gacha";
 };
 
-export type TableHeadNames = {
+export type TableHeadName = {
   align: "center" | "left" | "inherit" | "right" | "justify" | undefined;
   name: string | string[];
 };

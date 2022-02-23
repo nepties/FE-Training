@@ -10,15 +10,17 @@ import {
   Divider,
 } from "@mui/material";
 
-import { TableHeadNames, EquipmentInfo } from "types/types";
-import sampleEquipmentDatas from "../data/SampleEquipmentData";
+import { observer } from "mobx-react-lite";
+
 import images from "assets";
+import { TableHeadName, EquipmentInfo } from "types/types";
+import useEquipmentsStore from "../useEquipmentsStore";
 
 interface EquipmentDataTableProps {
   onClick: (info: EquipmentInfo) => void;
 }
 
-const EquipmentTableHeadNames: TableHeadNames[] = [
+const EquipmentTableHeadNames: TableHeadName[] = [
   { align: "center", name: "이미지" },
   { align: "center", name: "속성" },
   { align: "center", name: "레어도" },
@@ -48,7 +50,9 @@ const TextToJSXElement = (text: string[], className: string): JSX.Element => {
   );
 };
 
-const EquipmentDataTable = ({ onClick }: EquipmentDataTableProps) => {
+const EquipmentDataTable = observer(({ onClick }: EquipmentDataTableProps) => {
+  const { equipmentData } = useEquipmentsStore();
+
   return (
     <TableContainer component={Box}>
       <Table className="equipment-table" aria-label="Equipment table">
@@ -68,7 +72,7 @@ const EquipmentDataTable = ({ onClick }: EquipmentDataTableProps) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {sampleEquipmentDatas.map((row) => (
+          {equipmentData.map((row) => (
             <TableRow
               key={row.prefix}
               sx={{
@@ -141,6 +145,6 @@ const EquipmentDataTable = ({ onClick }: EquipmentDataTableProps) => {
       </Table>
     </TableContainer>
   );
-};
+});
 
 export default EquipmentDataTable;

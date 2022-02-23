@@ -3,9 +3,10 @@ import {
   Box,
   Button,
   Dialog,
-  DialogTitle,
   DialogContent,
   DialogActions,
+  DialogProps,
+  DialogTitle,
   Fade,
   FormControlLabel,
   Grid,
@@ -19,8 +20,7 @@ import images from "assets";
 import { CharacterInfo } from "types/types";
 import CharacterDetailTable from "./CharacterDetailTable";
 
-interface CharacterDialogProps {
-  open: boolean;
+interface CharacterDialogProps extends Omit<DialogProps, "onClose"> {
   info: CharacterInfo;
   onClose: () => void;
 }
@@ -34,7 +34,12 @@ const getImage = (type: string, element: string): "*.webp" | "*.jpg" => {
   return images[type + element[0].toUpperCase() + element.substring(1)];
 };
 
-const CharacterDialog = ({ open, info, onClose }: CharacterDialogProps) => {
+const CharacterDialog = ({
+  open,
+  info,
+  onClose,
+  ...otherProps
+}: CharacterDialogProps) => {
   const [checked, setChecked] = React.useState(false);
   const [showAwaken, setShowAwaken] = React.useState(false);
   const [showDefault, setShowDefault] = React.useState(true);
@@ -49,11 +54,11 @@ const CharacterDialog = ({ open, info, onClose }: CharacterDialogProps) => {
   };
 
   const resetAwakenChange = () => {
-    if (checked) {
-      setChecked(false);
-      setShowDefault(true);
-      setShowAwaken(false);
-    }
+    if (!checked) return;
+
+    setChecked(false);
+    setShowDefault(true);
+    setShowAwaken(false);
   };
 
   const closeDialog = () => {
@@ -62,7 +67,13 @@ const CharacterDialog = ({ open, info, onClose }: CharacterDialogProps) => {
   };
 
   return (
-    <Dialog onClose={closeDialog} open={open} maxWidth="md" scroll="body">
+    <Dialog
+      onClose={closeDialog}
+      open={open}
+      maxWidth="md"
+      scroll="body"
+      {...otherProps}
+    >
       <DialogTitle>
         {info.name}
         <IconButton

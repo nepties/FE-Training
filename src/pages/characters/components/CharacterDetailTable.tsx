@@ -7,19 +7,37 @@ interface CharacterDetailTableProps {
   info: CharacterInfo;
 }
 
-const TextToJSXElement = (
-  text: string[],
-  className: string,
-  key: number,
-): JSX.Element => {
+const TextToJSXElement = (text: string[], className: string): JSX.Element => {
   return (
-    <div key={key} className={className}>
+    <div className={className}>
       {text.map((line, index) => (
         <div key={index}>{line}</div>
       ))}
     </div>
   );
 };
+
+// const formatText = (
+//   text: string[],
+//   className: string,
+//   key: number,
+// ): JSX.Element => {
+//   return (
+//     <div key={key} className={className}>
+//       {text.map((line, index) => (
+//         <p key={index}>{line}</p>
+//       ))}
+//     </div>
+//   );
+// };
+
+// const MultilineText = ({text, ...otherProps}: {text: string[]}) => (
+//   <div {...otherProps}>
+//     {text.map((line, index) => (
+//       <p key={index}>{line}</p>
+//     ))}
+//   </div>
+// );
 
 const getImage = (type: string, element: string): "*.webp" => {
   if (
@@ -102,7 +120,7 @@ const CharacterDetailTable = ({ info }: CharacterDetailTableProps) => {
               <b>{info.skill.name}</b>
               <small> (스킬 웨이트: {info.skill.weight})</small>
             </div>
-            {TextToJSXElement(info.skill.text, "character-detail-text", 1)}
+            {TextToJSXElement(info.skill.text, "character-detail-text")}
             <div className="character-detail-text">{info.skill.effect}</div>
           </td>
         </tr>
@@ -110,15 +128,24 @@ const CharacterDetailTable = ({ info }: CharacterDetailTableProps) => {
           <th>리더 특성</th>
           <td>
             <b>{info.leader.name}</b>
-            {TextToJSXElement(info.leader.text, "character-detail-text", 1)}
+            {TextToJSXElement(info.leader.text, "character-detail-text")}
           </td>
         </tr>
         <tr>
           <th>어빌리티</th>
           <td className="character-detail-ability">
-            {info.abilities.map((ability, index) =>
-              TextToJSXElement(ability, "character-detail-text", index),
-            )}
+            {TextToJSXElement(info.ability1, "character-detail-text")}
+            {TextToJSXElement(info.ability2, "character-detail-text")}
+            {TextToJSXElement(info.ability3, "character-detail-text")}
+            {info.ability4 !== undefined
+              ? TextToJSXElement(info.ability4, "character-detail-text")
+              : ""}
+            {info.ability5 !== undefined
+              ? TextToJSXElement(info.ability5, "character-detail-text")
+              : ""}
+            {info.ability6 !== undefined
+              ? TextToJSXElement(info.ability6, "character-detail-text")
+              : ""}
           </td>
         </tr>
       </tbody>

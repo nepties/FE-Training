@@ -9,15 +9,17 @@ import {
   Box,
 } from "@mui/material";
 
-import { Gender, Race, TableHeadNames, CharacterInfo } from "types/types";
-import sampleCharacterDatas from "../data/SampleCharacterData";
+import { observer } from "mobx-react-lite";
+
 import images from "assets";
+import { Gender, Race, TableHeadName, CharacterInfo } from "types/types";
+import useCharactersStore from "../useCharactersStore";
 
 interface CharacterDataTableProps {
   onClick: (info: CharacterInfo) => void;
 }
 
-const characterTableHeadNames: TableHeadNames[] = [
+const characterTableHeadNames: TableHeadName[] = [
   { align: "center", name: "썸네일" },
   { align: "center", name: "도트" },
   { align: "center", name: "속성" },
@@ -41,7 +43,7 @@ const getImage = (type: string, element: string): "*.webp" => {
   return images[type + element[0].toUpperCase() + element.substring(1)];
 };
 
-const getGender = (gender: Gender): string => {
+const formatGender = (gender: Gender): string => {
   switch (gender) {
     case "male":
       return "男";
@@ -54,8 +56,8 @@ const getGender = (gender: Gender): string => {
   }
 };
 
-const getRace = (race: Race[]): string => {
-  let raceString: string = race.join("/");
+const getRaceString = (races: Race[]): string => {
+  let raceString: string = races.join("/");
   raceString = raceString.replace("human", "인간");
   raceString = raceString.replace("spirit", "정령");
   raceString = raceString.replace("demon", "악마");
@@ -69,7 +71,9 @@ const getRace = (race: Race[]): string => {
   return raceString;
 };
 
-const CharacterDataTable = ({ onClick }: CharacterDataTableProps) => {
+const CharacterDataTable = observer(({ onClick }: CharacterDataTableProps) => {
+  const { characterData } = useCharactersStore();
+
   return (
     <TableContainer component={Box}>
       <Table aria-label="character table">
@@ -87,7 +91,7 @@ const CharacterDataTable = ({ onClick }: CharacterDataTableProps) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {sampleCharacterDatas.map((row) => (
+          {characterData.map((row) => (
             <TableRow
               key={row.prefix}
               sx={{
@@ -121,7 +125,7 @@ const CharacterDataTable = ({ onClick }: CharacterDataTableProps) => {
               </TableCell>
               <TableCell align="center">
                 <img
-                  className="rarity"
+                  className="star"
                   src={getImage("star", row.rarity)}
                   alt=""
                 />
@@ -144,10 +148,10 @@ const CharacterDataTable = ({ onClick }: CharacterDataTableProps) => {
                 />
               </TableCell>
               <TableCell align="center" sx={{ fontSize: "0.9rem" }}>
-                {getGender(row.gender)}
+                {formatGender(row.gender)}
               </TableCell>
               <TableCell align="center" sx={{ fontSize: "0.9rem" }}>
-                {getRace(row.race)}
+                {getRaceString(row.race)}
               </TableCell>
               <TableCell align="center" sx={{ fontSize: "0.9rem" }}>
                 {row.skill.weight}
@@ -157,9 +161,9 @@ const CharacterDataTable = ({ onClick }: CharacterDataTableProps) => {
               </TableCell>
               <TableCell
                 align="center"
-                sx={{ color: row.board2 ? "red" : "green", fontSize: "0.9rem" }}
+                sx={{ color: row.board2 ? "green" : "red", fontSize: "0.9rem" }}
               >
-                {row.board2 ? "X" : "O"}
+                {row.board2 ? "O" : "X"}
               </TableCell>
             </TableRow>
           ))}
@@ -167,6 +171,6 @@ const CharacterDataTable = ({ onClick }: CharacterDataTableProps) => {
       </Table>
     </TableContainer>
   );
-};
+});
 
 export default CharacterDataTable;

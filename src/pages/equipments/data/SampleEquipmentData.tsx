@@ -21,6 +21,7 @@ const sampleEquipmentDatas: EquipmentInfo[] = [
       "각성 Lv5 : 파티에 화속성 캐릭터를 6개 편성했을 때, 관통 효과 중, 자신의 공격력+180%",
     ],
     obtain: ["하니와 카니발 보상"],
+    gacha: "nonGacha",
   },
   {
     prefix: "beastSword",
@@ -40,6 +41,7 @@ const sampleEquipmentDatas: EquipmentInfo[] = [
       "자신이 수속성 캐릭터일 때, 자신이 스킬을 발동할 때마다, 자신의 스킬 데미지+60% [최대+180%]",
     ],
     obtain: ["스토리 이벤트 「백수의 왕관」"],
+    gacha: "nonGacha",
   },
 ];
 
