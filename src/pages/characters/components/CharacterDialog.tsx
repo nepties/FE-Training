@@ -16,7 +16,7 @@ import {
 
 import CloseIcon from "@mui/icons-material/CloseRounded";
 
-import images from "assets";
+import { getImage } from "utils/format";
 import { CharacterInfo } from "types/types";
 import CharacterDetailTable from "./CharacterDetailTable";
 
@@ -24,15 +24,6 @@ interface CharacterDialogProps extends Omit<DialogProps, "onClose"> {
   info: CharacterInfo;
   onClose: () => void;
 }
-
-const getImage = (type: string, element: string): "*.webp" | "*.jpg" => {
-  if (
-    images[type + element[0].toUpperCase() + element.substring(1)] === undefined
-  ) {
-    return images["noImage"];
-  }
-  return images[type + element[0].toUpperCase() + element.substring(1)];
-};
 
 const CharacterDialog = ({
   open,

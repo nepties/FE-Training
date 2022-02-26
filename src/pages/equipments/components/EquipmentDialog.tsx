@@ -13,7 +13,8 @@ import {
 
 import CloseIcon from "@mui/icons-material/CloseRounded";
 
-import images from "assets";
+import MultilineText from "components/MultilineText";
+import { getImage } from "utils/format";
 import { EquipmentInfo } from "types/types";
 
 interface EquipmentDialogProps {
@@ -21,15 +22,6 @@ interface EquipmentDialogProps {
   info: EquipmentInfo;
   onClose: () => void;
 }
-
-const getImage = (type: string, element: string): "*.webp" | "*.jpg" => {
-  if (
-    images[type + element[0].toUpperCase() + element.substring(1)] === undefined
-  ) {
-    return images["noImage"];
-  }
-  return images[type + element[0].toUpperCase() + element.substring(1)];
-};
 
 const TextToJSXElement = (text: string[], className: string): JSX.Element => {
   return (
@@ -96,12 +88,14 @@ const EquipmentDialog = ({ open, info, onClose }: EquipmentDialogProps) => {
         <Divider />
         <Box sx={{ textAlign: "center" }}>{info.name}</Box>
         <Divider />
-        {TextToJSXElement(info.basic, "equipment-text blur")}
+        <MultilineText text={info.basic} className="equipment-text blur" />
         <Divider />
-        {TextToJSXElement(info.max, "equipment-text")}
-        {info.awaken !== undefined
-          ? TextToJSXElement(info.awaken, "equipment-text")
-          : ""}
+        <MultilineText text={info.max} className="equipment-text" />
+        {info.awaken !== undefined ? (
+          <MultilineText text={info.awaken} className="equipment-text" />
+        ) : (
+          ""
+        )}
         <Divider />
         <Box sx={{ textAlign: "center" }}>{info.obtain}</Box>
       </DialogContent>

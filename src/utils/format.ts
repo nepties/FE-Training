@@ -1,7 +1,7 @@
 import images from "assets";
 import { Gender, Race } from "types/types";
 
-export const getImage = (type: string, element: string): "*.webp" => {
+export const getImage = (type: string, element: string): "*.webp" | "*.jpg" => {
   if (
     images[type + element[0].toUpperCase() + element.substring(1)] === undefined
   ) {
@@ -10,7 +10,7 @@ export const getImage = (type: string, element: string): "*.webp" => {
   return images[type + element[0].toUpperCase() + element.substring(1)];
 };
 
-export const getGender = (gender: Gender): string => {
+export const formatGender = (gender: Gender): string => {
   switch (gender) {
     case "male":
       return "남성";
@@ -23,7 +23,7 @@ export const getGender = (gender: Gender): string => {
   }
 };
 
-export const getRace = (race: Race[]): string => {
+export const formatRace = (race: Race[]): string => {
   let raceString: string = race.join("/");
   raceString = raceString.replace("human", "인간");
   raceString = raceString.replace("spirit", "정령");

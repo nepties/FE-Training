@@ -12,7 +12,8 @@ import {
 
 import { observer } from "mobx-react-lite";
 
-import images from "assets";
+import MultilineText from "components/MultilineText";
+import { getImage, formatGender, formatRace } from "utils/format";
 import { TableHeadName, EquipmentInfo } from "types/types";
 import useEquipmentsStore from "../useEquipmentsStore";
 
@@ -31,25 +32,6 @@ const EquipmentTableHeadNames: TableHeadName[] = [
   { align: "left", name: "획득처" },
 ];
 
-const getImage = (type: string, element: string): "*.webp" => {
-  if (
-    images[type + element[0].toUpperCase() + element.substring(1)] === undefined
-  ) {
-    return images["noImage"];
-  }
-  return images[type + element[0].toUpperCase() + element.substring(1)];
-};
-
-const TextToJSXElement = (text: string[], className: string): JSX.Element => {
-  return (
-    <div className={className}>
-      {text.map((line, index) => (
-        <div key={index}>{line}</div>
-      ))}
-    </div>
-  );
-};
-
 const EquipmentDataTable = observer(({ onClick }: EquipmentDataTableProps) => {
   const { equipmentData } = useEquipmentsStore();
 
@@ -64,9 +46,14 @@ const EquipmentDataTable = observer(({ onClick }: EquipmentDataTableProps) => {
                 align={headName.align}
                 sx={{ fontWeight: "bold" }}
               >
-                {typeof headName.name === "string"
-                  ? headName.name
-                  : TextToJSXElement(headName.name, "equipment-table-head")}
+                {typeof headName.name === "string" ? (
+                  headName.name
+                ) : (
+                  <MultilineText
+                    text={headName.name}
+                    className="equipment-table-head"
+                  />
+                )}
               </TableCell>
             ))}
           </TableRow>
@@ -112,12 +99,17 @@ const EquipmentDataTable = observer(({ onClick }: EquipmentDataTableProps) => {
                 align="left"
                 sx={{ fontSize: "0.9rem", maxWidth: "350px" }}
               >
-                {TextToJSXElement(row.basic, "equipment-text blur")}
+                <MultilineText
+                  text={row.basic}
+                  className="equipment-text blur"
+                />
                 <Divider sx={{ mb: "8px" }} />
-                {TextToJSXElement(row.max, "equipment-text")}
-                {row.awaken !== undefined
-                  ? TextToJSXElement(row.awaken, "equipment-text")
-                  : ""}
+                <MultilineText text={row.max} className="equipment-text" />
+                {row.awaken !== undefined ? (
+                  <MultilineText text={row.awaken} className="equipment-text" />
+                ) : (
+                  ""
+                )}
               </TableCell>
               <TableCell
                 align="right"
