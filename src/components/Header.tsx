@@ -1,51 +1,111 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
 import {
-  Link as RouterLink,
-  LinkProps as RouterLinkProps,
-  MemoryRouter,
-} from "react-router-dom";
+  AppBar,
+  Box,
+  Toolbar,
+  IconButton,
+  Typography,
+  Menu,
+  Container,
+  Button,
+  MenuItem,
+} from "@mui/material";
+
+import MenuIcon from "@mui/icons-material/Menu";
+import GoogleIcon from "@mui/icons-material/Google";
+
+import { Link as RouterLink } from "react-router-dom";
+
+import {
+  getAuth,
+  signInWithPopup,
+  signOut,
+  GoogleAuthProvider,
+  User,
+} from "firebase/auth";
+
+import { openDB } from "idb";
 
 const pages = [
   { name: "캐릭터", path: "/characters" },
   { name: "장비", path: "/equipments" },
   { name: "Sudoku", path: "/sudoku" },
 ];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null,
   );
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-    null,
-  );
+  const [user, setUser] = React.useState<User | null>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
+  const getUser = async (): Promise<void> => {
+    let user: User | null = getAuth().currentUser;
+
+    if (user === null) {
+      const firebaseDb = await openDB("firebaseLocalStorageDb");
+      const firebaseLocalStorage = await firebaseDb.getAll(
+        "firebaseLocalStorage",
+      );
+      if (firebaseLocalStorage.length !== 0) {
+        setUser(firebaseLocalStorage[0].value as User);
+      }
+    } else {
+      setUser(user);
+    }
   };
+
+  const signIn = async () => {
+    const auth = getAuth();
+    const provider = new GoogleAuthProvider();
+
+    try {
+      const result = await signInWithPopup(auth, provider);
+      setUser(result.user);
+    } catch (error) {
+      console.error(error);
+      alert("로그인 실패.\n관리자에게 문의해주세요.\n\n" + error);
+    }
+  };
+
+  const signOutByClick = async () => {
+    const auth = getAuth();
+    try {
+      await signOut(auth);
+      setUser(null);
+    } catch (error) {
+      console.error(error);
+      alert("로그아웃 실패.\n관리자에게 문의해주세요.\n\n" + error);
+    }
+  };
+
+  const signButtonByUserState = () => {
+    if (user === null) {
+      return (
+        <Button variant="contained" color="info" onClick={signIn}>
+          <GoogleIcon sx={{ width: "14px", height: "14px", mr: "0.5rem" }} />
+          로그인
+        </Button>
+      );
+    } else {
+      return (
+        <Button variant="contained" color="error" onClick={signOutByClick}>
+          로그아웃
+        </Button>
+      );
+    }
+  };
+
+  React.useEffect(() => {
+    getUser();
+  }, []);
 
   return (
     <AppBar position="static">
@@ -129,36 +189,8 @@ const Header = () => {
               </Button>
             ))}
           </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+          {signButtonByUserState()}
+          <Box sx={{ flexGrow: 0 }}></Box>
         </Toolbar>
       </Container>
     </AppBar>
