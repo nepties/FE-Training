@@ -27,7 +27,7 @@ const CharactersMain = observer(() => {
 
   useEffect(() => {
     fetchCharacterData();
-  }, []);
+  }, [fetchCharacterData]);
 
   return (
     <>

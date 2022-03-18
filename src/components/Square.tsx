@@ -15,7 +15,7 @@ const Square = ({ id, value, onClick }: SquareProps) => {
     if (value === null) {
       setEditable(" editable");
     }
-  }, []);
+  }, [value]);
 
   let borderClass = "";
 

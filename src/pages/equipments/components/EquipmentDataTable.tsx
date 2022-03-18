@@ -13,7 +13,7 @@ import {
 import { observer } from "mobx-react-lite";
 
 import MultilineText from "components/MultilineText";
-import { getImage, formatGender, formatRace } from "utils/format";
+import { getImage } from "utils/format";
 import { TableHeadName, EquipmentInfo } from "types/types";
 import useEquipmentsStore from "../useEquipmentsStore";
 

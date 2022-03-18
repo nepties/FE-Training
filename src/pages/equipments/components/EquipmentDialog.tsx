@@ -23,16 +23,6 @@ interface EquipmentDialogProps {
   onClose: () => void;
 }
 
-const TextToJSXElement = (text: string[], className: string): JSX.Element => {
-  return (
-    <div className={className}>
-      {text.map((line, index) => (
-        <div key={index}>{line}</div>
-      ))}
-    </div>
-  );
-};
-
 const EquipmentDialog = ({ open, info, onClose }: EquipmentDialogProps) => {
   const closeDialog = () => {
     onClose();

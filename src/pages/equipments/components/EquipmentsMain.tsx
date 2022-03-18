@@ -27,7 +27,7 @@ const EquipmentsMain = observer(() => {
 
   useEffect(() => {
     fetchEquipmentData();
-  }, []);
+  }, [fetchEquipmentData]);
 
   return (
     <>
