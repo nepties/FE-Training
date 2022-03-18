@@ -79,3 +79,17 @@
   - 로그인, 편성
 
 -
+
+OAuth
+https://architectxchange.com/oauth-2-0-web-server-flow-with-implementation/
+
+JWT (Json Web Token)
+https://jwt.io/introduction
+
+Session vs Token Authentication
+https://fierycoding.tistory.com/69
+
+Cookie
+
+https://han41858.tistory.com/54
+Local Storage, Session Storage, Indexed DB
