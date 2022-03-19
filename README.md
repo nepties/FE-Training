@@ -28,4 +28,4 @@ Google Firebase의 Authentication 기능을 이용해 Google 아이디로 로그
 
 ### 스크린샷
 
-![This is screenshot file]](src/assets/wafuri-copy-screenshot.png)
+![This is screenshot file](src/assets/wafuri-copy-screenshot.png)
