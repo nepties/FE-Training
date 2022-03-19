@@ -1,6 +1,6 @@
-# Front Engineering Training Project
+# Front End Training Project
 
-프론트 엔지니어링 연습을 위한 프로젝트로, 최종적으로는 월드플리퍼 게임의 유저가 제작한 정보 페이지인 https://wafuri.com 의 복사본 페이지를 만드는 것을 목표로 합니다.
+프론트 엔드 개발 연습을 위한 프로젝트로, 월드플리퍼 게임의 유저가 제작한 정보 페이지인 https://wafuri.com 의 복사본 페이지를 만드는 것을 목표로 합니다.
 
 ## 사용 기술
 
