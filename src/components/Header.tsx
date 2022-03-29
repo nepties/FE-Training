@@ -29,7 +29,6 @@ import { openDB } from "idb";
 const pages = [
   { name: "캐릭터", path: "/characters" },
   { name: "장비", path: "/equipments" },
-  { name: "Sudoku", path: "/sudoku" },
 ];
 
 const Header = () => {
