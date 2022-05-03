@@ -49,13 +49,16 @@ const Header = () => {
     let user: User | null = getAuth().currentUser;
 
     if (user === null) {
-      const firebaseDb = await openDB("firebaseLocalStorageDb");
-      const firebaseLocalStorage = await firebaseDb.getAll(
-        "firebaseLocalStorage",
-      );
-      if (firebaseLocalStorage.length !== 0) {
-        setUser(firebaseLocalStorage[0].value as User);
-      }
+      try {
+        const firebaseDb = await openDB("firebaseLocalStorageDb");
+        const firebaseLocalStorage = await firebaseDb.getAll(
+          "firebaseLocalStorage",
+        );
+
+        if (firebaseLocalStorage.length !== 0) {
+          setUser(firebaseLocalStorage[0].value as User);
+        }
+      } catch (error) {}
     } else {
       setUser(user);
     }
